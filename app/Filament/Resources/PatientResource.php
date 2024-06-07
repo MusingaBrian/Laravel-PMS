@@ -12,6 +12,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Eloquent\Builder;
@@ -66,7 +67,10 @@ class PatientResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('name'),
+                TextColumn::make('type'),
+                TextColumn::make('date_of_birth'),
+                TextColumn::make('owner.name'),
             ])
             ->filters([
                 //
