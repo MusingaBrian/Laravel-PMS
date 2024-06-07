@@ -31,7 +31,7 @@ class TreatmentsRelationManager extends RelationManager
                 TextInput::make('price')
                     ->numeric()
                     ->prefix('UGX')
-                    ->maxValue(1, 000, 000, 000),
+                    ->maxValue(1000000000),
             ]);
     }
 
@@ -44,6 +44,8 @@ class TreatmentsRelationManager extends RelationManager
                 TextColumn::make('price')
                     ->money('UGX')
                     ->sortable(),
+                TextColumn::make('created_at')
+                    ->dateTime(),
             ])
             ->filters([
                 //
