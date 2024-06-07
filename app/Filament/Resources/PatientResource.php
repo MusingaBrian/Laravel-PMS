@@ -29,6 +29,12 @@ class PatientResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Select::make('type')
+                    ->options([
+                        'cat' => 'Cat',
+                        'dot' => 'Dog',
+                        'rabbit' => 'Rabbit',
+                    ])
+                    ->required(),
             ]);
     }
 
