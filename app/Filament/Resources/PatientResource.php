@@ -6,6 +6,7 @@ use App\Filament\Resources\PatientResource\Pages;
 use App\Filament\Resources\PatientResource\RelationManagers;
 use App\Models\Patient;
 use Filament\Forms;
+use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -35,6 +36,9 @@ class PatientResource extends Resource
                         'rabbit' => 'Rabbit',
                     ])
                     ->required(),
+                DatePicker::make('date_of_birth')
+                    ->required()
+                    ->maxDate(now()),
             ]);
     }
 
