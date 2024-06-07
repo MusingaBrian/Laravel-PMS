@@ -34,7 +34,7 @@ class PatientResource extends Resource
                 Select::make('type')
                     ->options([
                         'cat' => 'Cat',
-                        'dot' => 'Dog',
+                        'dog' => 'Dog',
                         'rabbit' => 'Rabbit',
                     ])
                     ->required(),
@@ -67,10 +67,14 @@ class PatientResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('type'),
-                TextColumn::make('date_of_birth'),
-                TextColumn::make('owner.name'),
+                TextColumn::make('name')
+                    ->sortable(),
+                TextColumn::make('type')
+                    ->sortable(),
+                TextColumn::make('date_of_birth')
+                    ->sortable(),
+                TextColumn::make('owner.name')
+                    ->searchable(),
             ])
             ->filters([
                 //
