@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\PatientResource\RelationManagers;
 
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
@@ -20,7 +21,12 @@ class TreatmentsRelationManager extends RelationManager
             ->schema([
                 Forms\Components\TextInput::make('description')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(255)
+                    ->columnSpan('full'),
+
+                TextInput::make('notes')
+                    ->maxLength(65535)
+                    ->columnSpan('full'),
             ]);
     }
 
