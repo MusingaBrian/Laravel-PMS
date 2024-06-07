@@ -41,6 +41,8 @@ class PatientResource extends Resource
                     ->maxDate(now()),
                 Select::make('owner')
                     ->relationship('owner', 'name')
+                    ->searchable()
+                    ->preload()
                     ->required(),
             ]);
     }
