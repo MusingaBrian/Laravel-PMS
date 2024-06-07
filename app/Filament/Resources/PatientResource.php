@@ -40,7 +40,7 @@ class PatientResource extends Resource
                 DatePicker::make('date_of_birth')
                     ->required()
                     ->maxDate(now()),
-                Select::make('owner')
+                Select::make('owner_id')
                     ->relationship('owner', 'name')
                     ->searchable()
                     ->preload()
