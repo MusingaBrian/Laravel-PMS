@@ -27,6 +27,10 @@ class TreatmentsRelationManager extends RelationManager
                 TextInput::make('notes')
                     ->maxLength(65535)
                     ->columnSpan('full'),
+                TextInput::make('price')
+                    ->numeric()
+                    ->prefix('UGX')
+                    ->maxValue(1, 000, 000, 000),
             ]);
     }
 
