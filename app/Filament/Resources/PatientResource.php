@@ -13,6 +13,7 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -43,6 +44,20 @@ class PatientResource extends Resource
                     ->relationship('owner', 'name')
                     ->searchable()
                     ->preload()
+                    ->createOptionForm([
+                        TextInput::make('name')
+                            ->required()
+                            ->maxLength(255),
+                        TextInput::make('email')
+                            ->label('Email Address')
+                            ->email()
+                            ->maxLength(255)
+                            ->required(),
+                        TextInput::make('phone')
+                            ->label('Enter Phone Number')
+                            ->tel()
+                            ->required(),
+                    ])
                     ->required(),
             ]);
     }
